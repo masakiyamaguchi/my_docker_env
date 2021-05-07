@@ -1,0 +1,17 @@
+FROM pipenv_base:latest
+
+SHELL ["/bin/bash", "-c"]
+
+RUN pip install jupyter
+
+RUN source ~/.bash_profile &&\
+    pyenv install 3.6.5 &&\
+    pyenv install 2.7.15 &&\
+    pyenv global 3.6.5 &&\
+    pip install --upgrade pip &&\
+    pip install ipykernel &&\
+    python -m ipykernel install --name 3.6.5 --display-name="Python3.6" &&\
+    pyenv global 2.7.15 &&\
+    pip install --upgrade pip &&\
+    pip install ipykernel &&\
+    python -m ipykernel install --name 2.7.15 --display-name="Python2.7"

@@ -1,0 +1,14 @@
+version: '3'（GPU使う時は2.3）
+services:
+  hogehoge:
+    image: [使いたいイメージの名前]
+    tty: true
+    user: root
+    stdin_open: true
+    ports:
+      - "[sudolabサーバ側で使いたいポート番号]:8888[dockerコンテナ内のポート番号. jupyterは勝手に8888を使うので基本的に変えない]"
+      複数開ける際は↑と同じ要領で列挙
+    volumes:
+      - [dockerコンテナにマウントしたいディレクトリの絶対パス]:/work[dockerコンテナ内での絶対パス]
+      複数マウントする際は↑と同じ要領で列挙
+    runtime(GPU使う時はつける):　nvidia
