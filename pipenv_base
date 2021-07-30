@@ -15,3 +15,6 @@ RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv &&\
 
 RUN pip install --upgrade pip &&\
     pip install pipenv
+
+RUN echo "export LC_ALL=C.UTF-8" >> ~/.bash_profile &&\
+    echo "export LANG=C.UTF-8" >> ~/.bash_profile
